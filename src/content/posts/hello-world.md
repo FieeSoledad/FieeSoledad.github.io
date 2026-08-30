@@ -1,12 +1,8 @@
 ---
 title: 欢迎来到我的博客
-description: 这是用 Astro 重建后的第一篇文章。
+description: 这里是Fieer，希望分享一些计算机底层知识的学习过程以及娱乐生活。
 published: 2026-08-30
-tags: [随笔, Astro]
+category: 随笔
+tags: [随笔]
 ---
-
-这里是博客的第一篇文章。以后只需要在 `src/content/posts/` 下新增 Markdown 文件，就可以发布内容。
-
-## 开始写作
-
-文章支持标准 Markdown，也支持代码块、图片、链接和表格。
+Hello World!

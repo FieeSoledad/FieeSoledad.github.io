@@ -1,0 +1,7 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+const posts = await getCollection('posts', ({data}) => !data.draft);
+const categories = [...new Set(posts.map(post => post.data.category))].sort();
+---
+<Layout title="分类"><div class="eyebrow">Browse by topic</div><h1 class="archive-year">文章分类</h1><section class="archive-list">{categories.map(category => <a href={`/categories/${category}/`}><span>{category}</span><time>{posts.filter(post => post.data.category === category).length} 篇</time></a>)}</section></Layout>

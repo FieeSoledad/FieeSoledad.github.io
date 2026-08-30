@@ -45,10 +45,22 @@ git push
 ## 项目目录
 
 - `src/content/posts/`：Markdown/MDX 文章
+- `src/pages/categories/`：按类别归档页面
 - `src/pages/`：页面和路由
 - `src/layouts/`：公共页面布局
 - `src/content.config.ts`：文章字段校验
 - `public/`：不会被处理的静态资源
+
+## 按类别归档
+
+每篇文章用 `category` 指定一个主类别，用 `tags` 指定多个辅助标签：
+
+```yaml
+category: 日漫
+tags: [推荐, 动画]
+```
+
+类别总览在 `/categories/`，例如 `日漫` 类别在 `/categories/日漫/`。
 
 ## 发布
 
