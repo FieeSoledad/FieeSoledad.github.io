@@ -4,4 +4,20 @@ import Layout from '../../layouts/Layout.astro';
 export async function getStaticPaths(){ const posts = await getCollection('posts', ({data}) => !data.draft); return posts.map(post => ({ params:{slug:post.id}, props:{post} })); }
 const { post } = Astro.props; const { Content } = await render(post);
 ---
+<style is:global>
+  article.article .prose pre.astro-code {
+    background-color: #D9D5C8 !important;
+    color: #20221f !important;
+    border: 1px solid #c8c4b8 !important;
+  }
+  article.article .prose pre.astro-code,
+  article.article .prose pre.astro-code * {
+    background-color: transparent !important;
+    color: #20221f !important;
+    -webkit-text-fill-color: #20221f !important;
+  }
+  article.article .prose pre.astro-code {
+    background-color: #D9D5C8 !important;
+  }
+</style>
 <Layout title={post.data.title} description={post.data.description}><article class="article"><header class="article-header"><div class="article-meta">{post.data.published.toLocaleDateString('zh-CN')} · {post.data.tags.join(' / ')}</div><h1>{post.data.title}</h1><p>{post.data.description}</p></header><div class="prose"><Content /></div></article></Layout>
