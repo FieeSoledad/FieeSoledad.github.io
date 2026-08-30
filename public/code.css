@@ -1,2 +1,2 @@
 .article .prose pre { background: #E1DDD2 !important; box-shadow: 0 1px 3px rgba(32,34,31,.08); }
-.article .prose img { display: block; width: 100%; max-width: 720px; height: auto; margin: 24px auto; border-radius: 6px; }
+.article .prose img { display: block; width: 100%; max-width: none; height: auto; margin: 24px 0; border-radius: 6px; }
