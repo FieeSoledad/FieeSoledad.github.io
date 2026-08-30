@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort((a,b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+<Layout>
+  <section class="hero"><div class="eyebrow">Personal notes / 2026</div><h1>把日子写成<br /><em>值得回看的东西。</em></h1><p>这里记录生活、思考、技术和那些偶然闪现的灵感。</p></section>
+  <div class="section-title">Latest writing</div>
+  <section class="post-list">{posts.map(post => <a class="post-item" href={`/blog/${post.id}/`}><time>{post.data.published.toLocaleDateString('zh-CN')}</time><div><h2>{post.data.title}</h2><p>{post.data.description}</p><div class="tags">{post.data.tags.map(tag => <span class="tag">#{tag}</span>)}</div></div></a>)}</section>
+</Layout>

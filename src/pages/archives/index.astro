@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import Layout from '../../layouts/Layout.astro';
+const posts = (await getCollection('posts', ({data}) => !data.draft)).sort((a,b) => b.data.published.valueOf()-a.data.published.valueOf());
+---
+<Layout title="归档"><div class="eyebrow">All writing</div><h1 class="archive-year">文章归档</h1><section class="archive-list">{posts.map(post => <a href={`/blog/${post.id}/`}><span>{post.data.title}</span><time>{post.data.published.toLocaleDateString('zh-CN')}</time></a>)}</section></Layout>
